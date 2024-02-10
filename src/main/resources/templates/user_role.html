@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th "http://www.thymeleaf.org">
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>User Role</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+	
+	<style type="text/css">
+	body {
+		font-family: Arial, sans-serif;
+		margin: 0;
+		padding: 0;
+		background-color: #f0f0f0;
+	}
+
+	h1,
+	h2 {
+		text-align: center;
+		padding: 2px;
+		background-color: #333;
+		color: white;
+	}
+
+	table {
+		width: 80%;
+		margin: 20px auto;
+		border-collapse: collapse;
+	}
+
+	th,
+	td {
+		border: 1px solid #ddd;
+		padding: 8px;
+		text-align: center;
+	}
+
+	tr:nth-child(even) {
+		background-color: #f2f2f2;
+
+	}
+
+	.actions {
+		text-align: center;
+		margin-top: 20px;
+	}
+
+	a {
+		display: inline-block;
+		margin: 5px;
+		padding: 8px 12px;
+		background-color: #333;
+		color: white;
+		text-decoration: none;
+		border-radius: 5px;
+	}
+
+	a:hover {
+		background-color: #555;
+	}
+
+	.form-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.form-label {
+		width: 200px;
+		text-align: center;
+	}
+
+	.form-input {
+		width: 200px;
+	}
+
+	.submit-button {
+		margin-top: 10px;
+	}
+</style>
+</head>
+
+<nav>
+	
+	<<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<div class="container-fluid">
+			<h2>User Role</h2>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+				</ul>
+			</div>
+		</div>
+		</nav>
+		<!--
+		<a href="@{/add}" th:if="${#session.getAttribute('userRole')=='ADMIN'}">Add Employee</a>
+		<a href="@{user-role}">User Role</a>
+		
+		<table>
+			<tr>
+				<thead>
+					<th>Employee Id</th>
+					<th>Nmae</th>
+					<th>Gender</th>
+					<th>Mobile No.</th>
+					<th>Email</th>
+					<th>Salary</th>
+					<th scope="col" th:if="${isAdmin}">Action</th>
+					
+				</thead>
+			</tr>
+			
+			<tbody>
+				<tr th:each="employee : ${employee}">
+				<td th:text="${employee.id}"></td>
+				<td th:text="${employee.employeeName}"></td>
+				<td th:text="${employee.gender}"></td>
+				<td th:text="${employee.mobile_no}"></td>
+				<td th:text="${employee.email}"></td>
+				<td th:text="${employee.salary}"></td>
+				<td th:if="${isAdmin}">
+					<a href="@{/edit/{id}(id=${employee.id})}">Edit</a>
+					<a href="@{/delete/{id}(id=${employee.id})}">Delete</a>
+				</td>
+				</tr>
+			</tbody>
+		</table>	
+		
+		-->
+		<a th:href="@{/viewhome}" disabled>Back To Home</a>
+		
+		<p>Welcome,<td th:text="${#session.getAttribute('username')}"></td></p>
+		
+		<table>
+			<tr>
+				<th>User name</th>
+				<th>Role</th>
+			</tr>
+			<tr>
+				<td th:text="${#session.getAttribute('username')}"></td>
+				<td th:text="${#session.getAttribute('userRole')}"></td>
+			</tr>
+			
+		</table>
+		
+	
+</body>
+</html>
